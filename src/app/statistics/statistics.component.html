@@ -1,0 +1,235 @@
+<div *ngIf='defeatsInRowPlayerOne || numberOfMatchPlayerOne || defeatsInRowPlayerTwo || numberOfMatchPlayerTwo' class='container-fluid'>
+<!-- start page title -->
+<div class="row">
+    <div class="col-6 offset-md-4" style="margin-left: 780px;">
+        <div class="page-title-box">
+            <span class="icon text-success mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="100" fill="currentColor"
+                    class="bi bi-calculator" viewBox="0 0 16 16">
+                    <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                    <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z" />
+                </svg>
+            </span>
+            <span class="text">Statistics of the player(s)</span>
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+
+    <div class="col-md-1 offset-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-primary mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16">
+                        <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z"/>
+                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Profit">Profit</span>
+                <h4 *ngIf='profitPlayerOne && profitPlayerOne > 0' class="text-success text-center">{{profitPlayerOne}}</h4>
+                <h4 *ngIf='profitPlayerOne && profitPlayerOne < 0' class="text-danger text-center">{{profitPlayerOne}}</h4>
+                <h4 *ngIf='!profitPlayerOne' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-primary mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
+                        <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/>
+                        <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Matchs">Matchs</span>
+                <h4 *ngIf='numberOfMatchPlayerOne' class="text-success text-center">{{numberOfMatchPlayerOne}}</h4>
+                <h4 *ngIf='!numberOfMatchPlayerOne' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-primary mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+                        <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Sets">Sets</span>
+                <h4 *ngIf='setsPerMatchPlayerOne' class="text-success text-center">{{setsPerMatchPlayerOne}}</h4>
+                <h4 *ngIf='!setsPerMatchPlayerOne' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-danger mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                        <path d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Lost">Lost</span>
+                <h4 *ngIf='defeatsInRowPlayerOne' class="text-danger text-center">{{defeatsInRowPlayerOne}}</h4>
+                <h4 *ngIf='!defeatsInRowPlayerOne' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1 offset-md-2">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-primary mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16">
+                        <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z"/>
+                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Profit">Profit</span>
+                <h4 *ngIf='profitPlayerTwo && profitPlayerTwo > 0' class="text-success text-center">{{profitPlayerTwo}}</h4>
+                <h4 *ngIf='profitPlayerTwo && profitPlayerTwo < 0' class="text-danger text-center">{{profitPlayerTwo}}</h4>
+                <h4 *ngIf='!profitPlayerTwo' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-primary mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
+                        <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/>
+                        <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Matchs">Matchs</span>
+                <h4 *ngIf='numberOfMatchPlayerTwo' class="text-success text-center">{{numberOfMatchPlayerTwo}}</h4>
+                <h4 *ngIf='!numberOfMatchPlayerTwo' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-primary mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+                        <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Sets">Sets</span>
+                <h4 *ngIf='setsPerMatchPlayerTwo' class="text-success text-center">{{setsPerMatchPlayerTwo}}</h4>
+                <h4 *ngIf='!setsPerMatchPlayerTwo' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="icon text-danger mr-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                        <path d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z"/>
+                      </svg>
+                </span>
+                <span class="text text-muted" title="Lost">Lost</span>
+                <h4 *ngIf='defeatsInRowPlayerTwo' class="text-danger text-center">{{defeatsInRowPlayerTwo}}</h4>
+                <h4 *ngIf='!defeatsInRowPlayerTwo' class="text-white text-center">N/A</h4>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-5 offset-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="text text-muted"><h3>Winning Ratio For The Range : {{rangeSelectedPlayerOne}}</h3></span>
+                <span class="dropdown float-right">
+                    <a class="dropdown-toggle arrow-none card-drop" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                          </svg>
+                    </a>
+                    <div *ngIf='rangesPlayerOne' class="dropdown-menu dropdown-menu-right">
+                        <a *ngFor='let rangeOne of rangesPlayerOne' class="dropdown-item text-center" role="button" (click)='selectRangePlayerOne(rangeOne)'>{{rangeOne.lowOdds}}  -  {{rangeOne.highOdds}}</a>
+                    </div>
+                </span>
+                <!-- <tennis-radar *ngIf='rangeToRadarPlayerOne' [range]='rangeToRadarPlayerOne'></tennis-radar> -->
+                <tennis-bar *ngIf='rangeToRadarPlayerOne' [range]='rangeToRadarPlayerOne'></tennis-bar>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-body text-center">
+                <span class="text text-muted"><h3>Winning Ratio For The Range : {{rangeSelectedPlayerTwo}}</h3></span>
+                <div class="dropdown float-right">
+                    <a class="dropdown-toggle arrow-none card-drop" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                          </svg>
+                    </a>
+                    <div *ngIf='rangesPlayerTwo' class="dropdown-menu dropdown-menu-right">
+                        <a *ngFor='let rangeTwo of rangesPlayerTwo' class="dropdown-item text-center" role="button" (click)='selectRangePlayerTwo(rangeTwo)'>{{rangeTwo.lowOdds}}  -  {{rangeTwo.highOdds}}</a>
+                    </div>
+                </div>
+                <!-- <tennis-radar *ngIf='rangeToRadarPlayerTwo' [range]='rangeToRadarPlayerTwo'></tennis-radar> -->
+                <tennis-bar *ngIf='rangeToRadarPlayerTwo' [range]='rangeToRadarPlayerTwo'></tennis-bar>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class =row>
+    <div *ngIf='rangeToRadarPlayerOne' class="col-md-5 offset-md-1">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="card-body text-center">
+                    <span class="text text-muted"><h3>Number of matchs & Odds average</h3></span>
+                    <br>
+                    <span *ngIf='rangeToRadarPlayerOne.all' class="text text-muted text-left" title="All">All : {{numberOfMatchByRangeAllPlayerOne}} matchs with an odds average of : {{oddsAverageByRangeAllPlayerOne}}</span>
+                    <span *ngIf='rangeToRadarPlayerOne.hard' class="text text-muted text-left" title="Hard">Hard : {{numberOfMatchByRangeHardPlayerOne}} matchs with an odds average of : {{oddsAverageByRangeHardPlayerOne}}</span>
+                    <span *ngIf='rangeToRadarPlayerOne.grass' class="text text-muted text-left" title="Grass">Grass : {{numberOfMatchByRangeGrassPlayerOne}} matchs with an odds average of : {{oddsAverageByRangeGrassPlayerOne}}</span>
+                    <span *ngIf='rangeToRadarPlayerOne.clay' class="text text-muted text-left" title="Clay">Clay : {{numberOfMatchByRangeClayPlayerOne}} matchs with an odds average of : {{oddsAverageByRangeClayPlayerOne}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='rangeToRadarPlayerOne && rangeToRadarPlayerTwo' class="col-md-5">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="card-body text-center">
+                    <span class="text text-muted"><h3>Number of matchs & Odds average</h3></span>
+                    <br>
+                    <span *ngIf='rangeToRadarPlayerTwo.all' class="text text-muted text-left" title="All">All : {{numberOfMatchByRangeAllPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeAllPlayerTwo}}</span>
+                    <span *ngIf='rangeToRadarPlayerTwo.hard' class="text text-muted text-left" title="Hard">Hard : {{numberOfMatchByRangeHardPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeHardPlayerTwo}}</span>
+                    <span *ngIf='rangeToRadarPlayerTwo.grass' class="text text-muted text-left" title="Grass">Grass : {{numberOfMatchByRangeGrassPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeGrassPlayerTwo}}</span>
+                    <span *ngIf='rangeToRadarPlayerTwo.clay' class="text text-muted text-left" title="Clay">Clay : {{numberOfMatchByRangeClayPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeClayPlayerTwo}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='!rangeToRadarPlayerOne && rangeToRadarPlayerTwo' class="col-md-5 offset-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="card-body text-center">
+                    <span class="text text-muted"><h3>Number of matchs & Odds average</h3></span>
+                    <br>
+                    <span *ngIf='rangeToRadarPlayerTwo.all' class="text text-muted text-left" title="All">All : {{numberOfMatchByRangeAllPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeAllPlayerTwo}}</span>
+                    <span *ngIf='rangeToRadarPlayerTwo.hard' class="text text-muted text-left" title="Hard">Hard : {{numberOfMatchByRangeHardPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeHardPlayerTwo}}</span>
+                    <span *ngIf='rangeToRadarPlayerTwo.grass' class="text text-muted text-left" title="Grass">Grass : {{numberOfMatchByRangeGrassPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeGrassPlayerTwo}}</span>
+                    <span *ngIf='rangeToRadarPlayerTwo.clay' class="text text-muted text-left" title="Clay">Clay : {{numberOfMatchByRangeClayPlayerTwo}} matchs with an odds average of : {{oddsAverageByRangeClayPlayerTwo}}</span>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+</div>

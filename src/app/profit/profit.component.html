@@ -1,0 +1,65 @@
+<div clas="container">
+    <div class="row">
+        <div class="col-6 offset-md-4" style="margin-left: 800px;">
+            <div class="page-title-box">
+                <span class="icon text-success mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="100" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16">
+                        <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z"/>
+                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z"/>
+                      </svg>
+                </span>
+                <span class="text">Ranking of the players</span>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf='!sixMonth && !oneYear && !threeMonth && !threeWeeks' class="row addmargetop">
+        <div class="col-6 offset-md-4 text" style="margin-left: 870px;"> Select A Period : </div>
+    </div>
+
+    <div class="row addmargetop">
+        <div class="col-md-1 offset-md-4">
+            <button class="btn btn-primary btn-block" type="submit" style="font-size: larger;" (click)='threeWeeksRanking()' >Three Weeks</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary btn-block" type="submit" style="font-size: larger;" (click)='threeMonthRanking()'>Three Month</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary btn-block" type="submit" style="font-size: larger;" (click)='sixMonthRanking()'>Six Month</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary btn-block" type="submit" style="font-size: larger;" (click)='oneYearRanking()'>One Year</button>
+        </div>
+    </div>
+
+    <div *ngIf='sixMonth || oneYear || threeMonth || threeWeeks' class="row addmargetop">
+        <div class="col-md-4 offset-md-4">
+            <input type="text" class="form-control" id="profit" [(ngModel)]='profit' placeholder="Select a player..." style='text-align:center'>
+        </div>
+    </div>
+
+    <div *ngIf='sixMonth || oneYear || threeMonth || threeWeeks' class="row addmargetop">
+        <table class='table table-striped' style='margin: auto; width: 1500px; padding: 200px;'>
+            <thead>
+                <tr>
+                    <th style='text-align: center'>Rank</th>
+                    <th style='text-align: center'>Player</th>
+                    <th style='text-align: center'>Profit</th>
+                    <th style='text-align: center'>Odds Average</th>
+                    <th style='text-align: center'>Ratio</th>
+                    <th style='text-align: center'>Number of match</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let profit of profitsFiltered'>
+                    <td style='text-align: center'>{{profit.ranking}}</td>
+                    <td style='text-align: center'>{{profit.player}}</td>
+                    <td style='text-align: center'>{{profit.profit}}</td>
+                    <td style='text-align: center'>{{profit.oddsAverage}}</td>
+                    <td style='text-align: center'>{{profit.ratio}}</td>
+                    <td style='text-align: center'>{{profit.numberOfMatchs}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
